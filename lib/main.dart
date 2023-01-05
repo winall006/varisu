@@ -95,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
               _counter,
               style: Theme.of(context).textTheme.headline4,
             ),
-            PaymentMethodRowItemWidget(onTap: _incrementCounter)
+            RowItemWidget(onTap: _incrementCounter)
           ],
         ),
       ),
