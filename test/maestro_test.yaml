@@ -1,0 +1,8 @@
+appId: com.thalapathy.varisu
+---
+- launchApp:
+    clearState: true
+- tapOn: "Select »
+Varisu
+Thee Thalapathy!"
+- assertVisible: "#VarisuPongal2023"
