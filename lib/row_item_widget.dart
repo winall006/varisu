@@ -1,19 +1,17 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
-class PaymentMethodRowItemWidget extends StatelessWidget {
+class RowItemWidget extends StatelessWidget {
   final VoidCallback onTap;
-  const PaymentMethodRowItemWidget({super.key, required this.onTap});
+  const RowItemWidget({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return _buildPaymentMethodItem(
+    return _buildItem(
       context,
     );
   }
 
-  CupertinoButton _buildPaymentMethodItem(
+  CupertinoButton _buildItem(
     BuildContext context,
   ) {
     return CupertinoButton(
@@ -22,13 +20,13 @@ class PaymentMethodRowItemWidget extends StatelessWidget {
         alignment: Alignment.topLeft,
         clipBehavior: Clip.none,
         children: [
-          _buildPaymentMethodContainer(
+          _buildContainer(
             context,
           ),
-          _buildPaymentMethodSelectButton(
+          _buildSelectButton(
             context,
           ),
-          _buildPaymentMethodParameters(
+          _buildParameters(
             context,
           ),
         ],
@@ -36,7 +34,7 @@ class PaymentMethodRowItemWidget extends StatelessWidget {
     );
   }
 
-  Positioned _buildPaymentMethodSelectButton(
+  Positioned _buildSelectButton(
     BuildContext context,
   ) {
     return Positioned(
@@ -46,7 +44,7 @@ class PaymentMethodRowItemWidget extends StatelessWidget {
         children: [
           Align(
             alignment: Alignment.centerRight,
-            child: _buildSelectPaymentMethodButton(
+            child: _buildButton(
               context,
             ),
           ),
@@ -55,7 +53,7 @@ class PaymentMethodRowItemWidget extends StatelessWidget {
     );
   }
 
-  Align _buildPaymentMethodContainer(
+  Align _buildContainer(
     BuildContext context,
   ) {
     return Align(
@@ -80,7 +78,7 @@ class PaymentMethodRowItemWidget extends StatelessWidget {
     );
   }
 
-  Positioned _buildPaymentMethodParameters(
+  Positioned _buildParameters(
     BuildContext context,
   ) {
     return Positioned(
@@ -88,9 +86,9 @@ class PaymentMethodRowItemWidget extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          _buildPaymentMethodImage(),
+          _buildImage(),
           SizedBox(width: 20),
-          _buildPaymentMethodTitleSubtitle(
+          _buildTitleSubtitle(
             context,
           ),
         ],
@@ -98,7 +96,7 @@ class PaymentMethodRowItemWidget extends StatelessWidget {
     );
   }
 
-  SizedBox _buildPaymentMethodImage() {
+  SizedBox _buildImage() {
     return SizedBox(
       height: 52,
       width: 52,
@@ -106,21 +104,21 @@ class PaymentMethodRowItemWidget extends StatelessWidget {
     );
   }
 
-  Column _buildPaymentMethodTitleSubtitle(BuildContext context) {
+  Column _buildTitleSubtitle(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildPaymentMethodTitle(
+        _buildTitle(
           context,
         ),
-        _buildPaymentMethodSubtitle(
+        _buildSubtitle(
           context,
         )
       ],
     );
   }
 
-  Text _buildPaymentMethodTitle(
+  Text _buildTitle(
     BuildContext context,
   ) {
     return Text(
@@ -128,7 +126,7 @@ class PaymentMethodRowItemWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildPaymentMethodSubtitle(
+  Widget _buildSubtitle(
     BuildContext context,
   ) {
     return Text(
@@ -136,7 +134,7 @@ class PaymentMethodRowItemWidget extends StatelessWidget {
     );
   }
 
-  Container _buildSelectPaymentMethodButton(
+  Container _buildButton(
     BuildContext context,
   ) {
     return Container(
@@ -153,15 +151,4 @@ class PaymentMethodRowItemWidget extends StatelessWidget {
       ),
     );
   }
-
-  // Color selectPaymentMethodButtonColor(
-  //     BuildContext context, PaymentMethod paymentMethod) {
-  //   return conditionalAvailability<Color>(
-  //     context,
-  //     paymentMethod,
-  //     ifDisabled: Theme.of(context).disabledColor,
-  //     ifEnabled: SBTheme.of(context).accentBoxColor.withOpacity(0.15),
-  //   );
-  // }
-
 }
